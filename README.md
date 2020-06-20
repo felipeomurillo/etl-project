@@ -10,11 +10,11 @@ Data chosen belong to kaggle, subject killings by US police.
 
 Data Source: https://www.kaggle.com/kwullum/fatal-police-shootings-in-the-us/¶
 
-a.- PoliceKillingsUS.csv
-b.- ShareRaceByCity.csv
-c.- PercentOver25CompletedHighSchool.csv
-d.- PercentagePeopleBelowPovertyLevel.csv
-e.- MedianHouseholdIncome2015.csv
+* a.- PoliceKillingsUS.csv
+* b.- ShareRaceByCity.csv
+* c.- PercentOver25CompletedHighSchool.csv
+* d.- PercentagePeopleBelowPovertyLevel.csv
+* e.- MedianHouseholdIncome2015.csv
 
 # Data Cleanup & Analysis
 
@@ -26,6 +26,7 @@ First thing was to set all columns of 'city' with the same format and delete the
 After being sure all the 'city' columns has the same format we used QuickDBD to see the relationship between tables getting to the confirming that the data we where using is relational and therefore SQL as chosen the database to use.
 
 But also, this action let us see that there was a lot of “duplicated” rows in each table, so, there was needed to clean the DataFrames in order to have a more lean information so we created a City_df that set a city_id and apply this one to every other dataframe we created to make it cleaner.
+* The reason behind leaving 5 tables instead of concatenating or merging them to leave only 2 or 3 is that after a close review of each table we can see that not all 'citi_id's are on each table so if we merge them we will have NA or lose some data.
 
 Once getting all the DataFrames as we expected to start  an analysis
 * Created the DB manually on PostgreSQL
