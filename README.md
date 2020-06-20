@@ -21,14 +21,11 @@ Data Sets:
 
 All dataset collected share geolocation data: city and state. However, cities had different format, ex: Atlanta City on ShareRaceByCity.csv and Atlanta City city on PoliceKillingsUS.csv
 
-First thing, was to assign a unique city ID to a specific geolocation (city, city type, state combination). The city dataframe was used to assign IDs to all datasets. Formatting and extraction was then perfromed with pandas to clean up indvidual city entries.
+First thing, was to assign a unique city ID to a specific geolocation (city, city type, state combination). This was necessary because, states aren't very creative with city names --- the same city shows up repeatedly. The city dataframe (with subsequent merges) was used to assign IDs to all datasets. Formatting and extraction was then performed with pandas to clean up indvidual city entries. For this step we used pandas process such as split and replace to get specifically the words we needed
 
-* For this step we used pandas process such as split and replace to get specifically the words we needed
+We decided to use SQL vs MongoDB because the data used is well structured, despite the cleaning process we performed. Additionally, after using QuickDBD to visualize the schema, we saw that building the relationship model effectively bonded the five tables using city attributes. We chose a city_db as the main-connector to all other tables. Since, the datasets aren't varying/dynamic in structure, Postgres was our go-to SQL-based database of choice.
 
-After being sure all the 'city' columns have the same format we decided to use SQL vs MongoDB because the data used is well structured, despite the cleaning process we performed. Additionally, we use the QuickDBD schema in order to build the relationship model that bonds the five tables.
-
-This action let us see that there was a lot of “duplicated” rows in each table, so it was required to clean the DataFrames in order to have a more lean information. Therefore, we created a City_df that set a city_id and apply this one to every other dataframe we created to make it cleaner.
-* The reason behind leaving 5 tables instead of concatenating or merging them into 2 or 3 is that after a close review of each table we can see that not all 'city_id's are on each table, so if we merge them we will have NA or lose some data. We wanted to keep all data available, when new city data becomes available, we can populate income data even when educational data may not be available.
+The reason behind leaving 5 tables instead of concatenating or merging them into 2 or 3 is that after a close review of each table we can see that not all 'city_id's are on each table, so if we merge them we will have NA or lose some data. We wanted to keep all data available, when new city data becomes available, we can populate income data even when educational data may not be available.
 
 Once getting all the DataFrames as we expected to start  an analysis
 * Created the DB manually on PostgreSQL
