@@ -28,9 +28,9 @@ We decided to use SQL vs MongoDB because the data used is well structured, despi
 The reason behind leaving 5 tables instead of concatenating or merging them into 2 or 3 is that after a close review of each table we can see that not all 'city_id's are on each table, so if we merge them we will have NA or lose some data. We wanted to keep all data available, when new city data becomes available, we can populate income data even when educational data may not be available.
 
 Once getting all the DataFrames as we expected to start  an analysis
-* Created the DB manually on PostgreSQL
-* Created the connection to PostgreSQL via SQLAlchemy
-* Created each of the 5 tables 
-* Confirm table contents by looking directly at the PostgreSQL program and with SQLAlchemy (making queries to said tables.
+1. Created the DB manually on PostgreSQL
+1. Created the connection to PostgreSQL via SQLAlchemy
+1. Created each of the 5 tables 
+1. Confirm table contents by looking directly at the PostgreSQL program and with SQLAlchemy (making queries to said tables.
 
 # Regards Team F
